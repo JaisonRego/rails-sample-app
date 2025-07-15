@@ -1,0 +1,14 @@
+<h1 class = "margin-left">Home page</h1>
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Key</th>
+    <th></th>
+  </tr>
+    <%= render 'ajax_table'%>
+</table>
+
+<%= will_paginate @pages %>
+
+

@@ -1,0 +1,23 @@
+<% @pages.each_with_index do |page, i| %>
+    <tr>
+        <td><%= page.name %></td>
+        <td><%= page.description %></td>
+        <td id="<%= i %>"><%= page.key %></td>
+        <td><button onclick="myFunction(<%= i %>, <%= page.id %>)">Click me</button></td>
+    </tr>
+<% end %>
+
+<script>
+    function myFunction(i, key) {
+    $.ajax({
+        type:"POST",
+        url:'pages',
+        data:{id: key},
+        success:function(responsedata){
+                document.getElementById(i).textContent = responsedata.id
+                // alert("key updated to");
+
+            }
+        })
+    }
+</script>
